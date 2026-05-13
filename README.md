@@ -75,6 +75,12 @@ The goal of this track is to make the page feel calmer, more pleasant, and more 
 - Warmer, coaching-oriented website copy
 - Calmer language around mindset, emotional reset, abundance, and conscious creation
 
+## Image Credits
+
+- Hero studio image: local generated/working project asset
+- Methods background image: [Kaylee Stoll on Unsplash](https://unsplash.com/photos/circular-wooden-gate-in-lush-garden-with-stone-path-aCXB0bajWEE)
+- Resources background image: [Sixteen Miles Out on Unsplash](https://unsplash.com/photos/sunlight-streams-through-a-lavender-bush-vZajO08oTiM)
+
 ## Local Preview
 
 You can open the website directly in a browser:

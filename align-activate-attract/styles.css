@@ -308,10 +308,12 @@ h3 {
   position: relative;
   min-height: min(560px, 66vw);
   overflow: hidden;
-  background: var(--sage-pale);
-  border: 1px solid rgba(41, 73, 62, 0.1);
-  border-radius: 34px;
-  box-shadow: var(--shadow-lifted);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-mask-image: radial-gradient(ellipse at 58% 50%, #000 0 59%, rgba(0, 0, 0, 0.78) 69%, transparent 86%);
+  mask-image: radial-gradient(ellipse at 58% 50%, #000 0 59%, rgba(0, 0, 0, 0.78) 69%, transparent 86%);
 }
 
 .hero-visual img {
@@ -320,7 +322,7 @@ h3 {
   min-height: min(560px, 66vw);
   object-fit: cover;
   object-position: center bottom;
-  filter: saturate(0.92) brightness(1.03);
+  filter: saturate(0.96) brightness(0.98) contrast(1.06);
   transform: scale(1.18);
   transform-origin: center bottom;
 }
@@ -328,22 +330,25 @@ h3 {
 .hero-visual::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(247, 243, 234, 0.04), rgba(247, 243, 234, 0.18));
+  background:
+    linear-gradient(90deg, rgba(247, 243, 234, 0.22), rgba(247, 243, 234, 0.01) 38%, rgba(247, 243, 234, 0.16) 100%),
+    linear-gradient(180deg, rgba(247, 243, 234, 0.02), rgba(247, 243, 234, 0.14));
   content: "";
 }
 
 .hero-note {
   position: absolute;
   z-index: 2;
-  right: 24px;
-  bottom: 24px;
-  width: min(285px, calc(100% - 48px));
-  padding: 22px;
+  right: 10%;
+  bottom: 13%;
+  width: min(310px, calc(100% - 48px));
+  padding: 0;
   color: var(--forest);
-  background: rgba(255, 253, 248, 0.96);
-  border: 1px solid rgba(41, 73, 62, 0.13);
-  border-radius: 20px;
-  box-shadow: 0 18px 44px rgba(41, 73, 62, 0.12);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: 0 1px 2px rgba(255, 253, 248, 0.92), 0 10px 26px rgba(255, 253, 248, 0.78);
 }
 
 .hero-note strong {
@@ -356,8 +361,9 @@ h3 {
 
 .hero-note span {
   display: block;
-  color: var(--forest-soft);
+  color: var(--forest);
   font-size: 0.92rem;
+  font-weight: 650;
   line-height: 1.45;
 }
 
@@ -448,7 +454,31 @@ h3 {
 }
 
 .methods {
+  position: relative;
+  overflow: hidden;
   background: var(--white);
+}
+
+.methods::before {
+  position: absolute;
+  top: 122px;
+  right: -2vw;
+  width: min(50vw, 760px);
+  height: 520px;
+  background:
+    linear-gradient(90deg, rgba(255, 253, 248, 0.22), rgba(255, 253, 248, 0.06)),
+    url("assets/methods-garden-path.jpg") center 48% / cover;
+  content: "";
+  opacity: 0.46;
+  filter: saturate(0.78) brightness(1.12);
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 0 48%, rgba(0, 0, 0, 0.62) 62%, transparent 82%);
+  mask-image: radial-gradient(ellipse at center, #000 0 48%, rgba(0, 0, 0, 0.62) 62%, transparent 82%);
+}
+
+.methods > * {
+  position: relative;
+  z-index: 1;
 }
 
 .method-grid {
@@ -532,7 +562,31 @@ h3 {
 }
 
 .resources {
+  position: relative;
+  overflow: hidden;
   background: var(--ivory);
+}
+
+.resources::before {
+  position: absolute;
+  top: 96px;
+  right: -2vw;
+  width: min(50vw, 780px);
+  height: 520px;
+  background:
+    linear-gradient(90deg, rgba(247, 243, 234, 0.34), rgba(247, 243, 234, 0.04)),
+    url("assets/resources-lavender-light.jpg") center 43% / cover;
+  content: "";
+  opacity: 0.4;
+  filter: saturate(0.78) brightness(1.18);
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 0 48%, rgba(0, 0, 0, 0.58) 62%, transparent 82%);
+  mask-image: radial-gradient(ellipse at center, #000 0 48%, rgba(0, 0, 0, 0.58) 62%, transparent 82%);
+}
+
+.resources > * {
+  position: relative;
+  z-index: 1;
 }
 
 .text-link {
@@ -795,6 +849,22 @@ h3 {
     justify-self: start;
   }
 
+  .methods::before {
+    top: 320px;
+    right: -42vw;
+    width: 118vw;
+    height: 380px;
+    opacity: 0.2;
+  }
+
+  .resources::before {
+    top: 250px;
+    right: -42vw;
+    width: 118vw;
+    height: 380px;
+    opacity: 0.22;
+  }
+
   .intention-strip {
     grid-template-columns: 1fr;
     margin-top: 0;
@@ -831,7 +901,8 @@ h3 {
 
   .hero-visual {
     min-height: 360px;
-    border-radius: 24px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 0 58%, rgba(0, 0, 0, 0.72) 68%, transparent 86%);
+    mask-image: radial-gradient(ellipse at center, #000 0 58%, rgba(0, 0, 0, 0.72) 68%, transparent 86%);
   }
 
   .hero-visual img {
@@ -842,7 +913,6 @@ h3 {
     right: 16px;
     bottom: 16px;
     width: calc(100% - 32px);
-    padding: 18px;
   }
 
   .resource-list,

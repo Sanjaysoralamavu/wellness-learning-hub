@@ -19,3 +19,8 @@ Open `index.html` in a browser, or serve the folder with any static file server.
 
 This version uses the Soft Sage Sanctuary direction: warm ivory, soft sage,
 gentle rose accents, a calmer split hero, and warmer coaching-focused copy.
+
+## Image credits
+
+- Methods background: [Kaylee Stoll on Unsplash](https://unsplash.com/photos/circular-wooden-gate-in-lush-garden-with-stone-path-aCXB0bajWEE)
+- Resources background: [Sixteen Miles Out on Unsplash](https://unsplash.com/photos/sunlight-streams-through-a-lavender-bush-vZajO08oTiM)
