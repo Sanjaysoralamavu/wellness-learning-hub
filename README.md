@@ -26,7 +26,9 @@ The site is intentionally lightweight: it uses plain HTML, CSS, and JavaScript, 
     |-- styles.css
     |-- script.js
     `-- assets/
-        `-- manifestation-studio.jpg
+        |-- manifestation-studio.jpg
+        |-- methods-garden-path.jpg
+        `-- resources-lavender-light.jpg
 ```
 
 This repository is kept clean on purpose. It only tracks the static website files and basic Git configuration. It does not include old template files, app framework code, build output, dependency folders, environment files, or backend secrets.
@@ -62,6 +64,37 @@ The website currently includes:
 | Build step | None |
 | Hosting ready | Yes, static hosting compatible |
 
+## Track History
+
+This README keeps a running record of each track so the project history stays clear as new branches and pull requests are created.
+
+| Track | Branch | Focus | Status |
+| --- | --- | --- | --- |
+| Track 1 | `handling-query` | Implementing W3Forms for the enquiry section | Implemented on branch |
+| Track 2 | `track-2-color-text-template` | Softer coaching page aesthetics, improved copy, and blended imagery | Current branch |
+
+## Track 1 - Implementing W3Forms
+
+Track 1 wires the enquiry form for Web3Forms so visitor messages can be delivered through a form backend instead of only opening the visitor's email app.
+
+This track lives on the `handling-query` branch. It includes:
+
+- Web3Forms submission endpoint: `https://api.web3forms.com/submit`
+- Required name field
+- Required email field
+- Optional phone or WhatsApp field
+- Required message field
+- Hidden subject line for inbox clarity
+- Hidden botcheck field for spam protection
+- JavaScript success and error messages without redirecting visitors away from the site
+- README guidance for replacing the placeholder Web3Forms access key before publishing
+
+Before publishing Track 1, create a Web3Forms access key and replace this placeholder in `align-activate-attract/index.html` on the `handling-query` branch:
+
+```html
+<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" data-access-key />
+```
+
 ## Track 2 - Color and Text Template
 
 Track 2 refreshes the website with the **Soft Sage Sanctuary** direction.
@@ -74,6 +107,8 @@ The goal of this track is to make the page feel calmer, more pleasant, and more 
 - More spacious cards and section rhythm
 - Warmer, coaching-oriented website copy
 - Calmer language around mindset, emotional reset, abundance, and conscious creation
+- Blended, frameless imagery for the hero, signature methods, and free resources sections
+- Local image assets with source credits documented below
 
 ## Image Credits
 
