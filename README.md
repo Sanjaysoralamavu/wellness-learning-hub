@@ -63,7 +63,7 @@ The website currently includes:
 | Build step | None |
 | Hosting ready | Yes, static hosting compatible |
 
-## Enquiry Form Setup
+## Track 1 - Implementing W3Forms
 
 The enquiry form is wired for Web3Forms and submits to:
 
