@@ -271,7 +271,25 @@
             </div>
           </div>
 
-          <form class="contact-form reveal" data-contact-form>
+          <form
+            class="contact-form reveal"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            data-contact-form
+          >
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" data-access-key />
+            <input type="hidden" name="subject" value="New manifestation enquiry from the website" />
+            <input type="hidden" name="from_name" value="Manifest with Dr. Manjula Kiran Website" />
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="botcheck"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+              style="display: none"
+            />
+
             <label>
               Name
               <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
@@ -279,6 +297,10 @@
             <label>
               Email
               <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+            </label>
+            <label>
+              Phone or WhatsApp
+              <input type="tel" name="phone" placeholder="Optional" autocomplete="tel" />
             </label>
             <label>
               What would you like to manifest?
@@ -291,8 +313,8 @@
                 <path d="m22 2-7 20-4-9-9-4 20-7Z" />
               </svg>
             </button>
-            <p class="form-note" data-form-note>
-              This opens your email app with the message addressed to drmanjulakiran1@gmail.com.
+            <p class="form-note" data-form-note role="status" aria-live="polite">
+              Your enquiry will be sent securely through Web3Forms once the access key is configured.
             </p>
           </form>
         </div>

@@ -48,7 +48,7 @@ The website currently includes:
 - Free resources section for guided sessions, affirmations, videos, and mindset content
 - Community call-to-action
 - Contact section with Instagram, Facebook, YouTube, and email links
-- Contact form that opens a prefilled email inquiry
+- Enquiry form integrated with Web3Forms for email delivery
 - Responsive layout for desktop and mobile screens
 
 ## Tech Stack
@@ -58,9 +58,34 @@ The website currently includes:
 | Markup | HTML5 |
 | Styling | CSS3 |
 | Interactions | Vanilla JavaScript |
+| Form backend | Web3Forms |
 | Assets | Local hero image |
 | Build step | None |
 | Hosting ready | Yes, static hosting compatible |
+
+## Track 1 - Implementing W3Forms
+
+The enquiry form is wired for Web3Forms and submits to:
+
+```text
+https://api.web3forms.com/submit
+```
+
+Before publishing the form, create a Web3Forms access key and replace this placeholder in `align-activate-attract/index.html`:
+
+```html
+<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" data-access-key />
+```
+
+Replace `YOUR_WEB3FORMS_ACCESS_KEY` with the real access key. The form includes:
+
+- Required name field
+- Required email field
+- Optional phone or WhatsApp field
+- Required message field
+- Hidden subject line for inbox clarity
+- Hidden botcheck field for spam protection
+- JavaScript success and error messages without redirecting visitors away from the site
 
 ## Local Preview
 
