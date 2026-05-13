@@ -3,6 +3,7 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
 const form = document.querySelector("[data-contact-form]");
 const formNote = document.querySelector("[data-form-note]");
+const accessKeyPlaceholder = "YOUR_WEB3FORMS_ACCESS_KEY";
 
 const syncHeader = () => {
   const scrolled = window.scrollY > 12;
@@ -59,24 +60,67 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
-form.addEventListener("submit", (event) => {
+const setFormStatus = (message, type = "neutral") => {
+  formNote.textContent = message;
+  formNote.dataset.status = type;
+};
+
+const setSubmitState = (isSubmitting) => {
+  const submitButton = form.querySelector('button[type="submit"]');
+  const labelNode = Array.from(submitButton.childNodes).find(
+    (node) => node.nodeType === Node.TEXT_NODE && node.nodeValue.trim()
+  );
+
+  submitButton.disabled = isSubmitting;
+
+  if (labelNode) {
+    labelNode.nodeValue = isSubmitting ? "Sending " : "Send Inquiry ";
+  }
+};
+
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const data = new FormData(form);
   const name = String(data.get("name") || "").trim();
   const email = String(data.get("email") || "").trim();
   const message = String(data.get("message") || "").trim();
+  const accessKey = String(data.get("access_key") || "").trim();
 
   if (!name || !email || !message) {
-    formNote.textContent = "Please complete all fields before sending your inquiry.";
+    setFormStatus("Please complete the required fields before sending your inquiry.", "error");
     return;
   }
 
-  const subject = encodeURIComponent("Manifestation journey inquiry");
-  const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\n\nIntention or question:\n${message}`
-  );
+  if (!accessKey || accessKey === accessKeyPlaceholder) {
+    setFormStatus("Add the Web3Forms access key in index.html before publishing this form.", "error");
+    return;
+  }
 
-  formNote.textContent = "Opening your email app with the inquiry ready to send.";
-  window.location.href = `mailto:drmanjulakiran1@gmail.com?subject=${subject}&body=${body}`;
+  try {
+    setSubmitState(true);
+    setFormStatus("Sending your inquiry...", "neutral");
+
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+      form.reset();
+      setFormStatus("Thank you. Your inquiry has been sent successfully.", "success");
+      return;
+    }
+
+    setFormStatus(result.message || "Something went wrong. Please try again in a moment.", "error");
+  } catch (error) {
+    setFormStatus("Unable to send right now. Please check your connection and try again.", "error");
+  } finally {
+    setSubmitState(false);
+  }
 });

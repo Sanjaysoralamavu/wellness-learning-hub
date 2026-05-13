@@ -39,3 +39,10 @@ and free resources sections.
 
 - Methods background: [Kaylee Stoll on Unsplash](https://unsplash.com/photos/circular-wooden-gate-in-lush-garden-with-stone-path-aCXB0bajWEE)
 - Resources background: [Sixteen Miles Out on Unsplash](https://unsplash.com/photos/sunlight-streams-through-a-lavender-bush-vZajO08oTiM)
+- Enquiry form integrated with Web3Forms
+
+## Web3Forms setup
+
+The enquiry form posts to `https://api.web3forms.com/submit`.
+
+Before going live, replace `YOUR_WEB3FORMS_ACCESS_KEY` in `index.html` with the real Web3Forms access key.

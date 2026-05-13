@@ -295,7 +295,25 @@
             </div>
           </div>
 
-          <form class="contact-form reveal" data-contact-form>
+          <form
+            class="contact-form reveal"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            data-contact-form
+          >
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" data-access-key />
+            <input type="hidden" name="subject" value="New manifestation enquiry from the website" />
+            <input type="hidden" name="from_name" value="Manifest with Dr. Manjula Kiran Website" />
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="botcheck"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+              style="display: none"
+            />
+
             <label>
               Name
               <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
@@ -306,6 +324,11 @@
             </label>
             <label>
               What are you calling into your life?
+              Phone or WhatsApp
+              <input type="tel" name="phone" placeholder="Optional" autocomplete="tel" />
+            </label>
+            <label>
+              What would you like to manifest?
               <textarea name="message" rows="5" placeholder="Share your intention or question" required></textarea>
             </label>
             <button class="button button-primary" type="submit">
@@ -315,8 +338,8 @@
                 <path d="m22 2-7 20-4-9-9-4 20-7Z" />
               </svg>
             </button>
-            <p class="form-note" data-form-note>
-              This opens your email app with the message addressed to drmanjulakiran1@gmail.com.
+            <p class="form-note" data-form-note role="status" aria-live="polite">
+              Your enquiry will be sent securely through Web3Forms once the access key is configured.
             </p>
           </form>
         </div>
