@@ -37,6 +37,8 @@ nav.addEventListener("click", (event) => {
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (event) => {
     const id = link.getAttribute("href");
+    if (!id || !id.startsWith("#")) return;
+
     const target = document.querySelector(id);
     if (!target) return;
 
@@ -59,6 +61,59 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+const billingOptions = document.querySelectorAll("[data-billing-option]");
+const planCards = document.querySelectorAll("[data-plan-card]");
+const billingLabels = {
+  monthly: "monthly",
+  six: "6-month",
+  year: "annual",
+};
+
+const getPaymentLink = (card, billing) => card.dataset[`link${billing[0].toUpperCase()}${billing.slice(1)}`];
+
+const syncPlanPricing = (billing) => {
+  billingOptions.forEach((option) => {
+    option.classList.toggle("is-active", option.dataset.billingOption === billing);
+  });
+
+  planCards.forEach((card) => {
+    const price = card.dataset[`price${billing[0].toUpperCase()}${billing.slice(1)}`];
+    const label = card.dataset[`label${billing[0].toUpperCase()}${billing.slice(1)}`];
+    const saving = card.dataset[`save${billing[0].toUpperCase()}${billing.slice(1)}`];
+    const paymentLink = getPaymentLink(card, billing);
+    const priceNode = card.querySelector("[data-plan-price]");
+    const labelNode = card.querySelector("[data-plan-label]");
+    const savingNode = card.querySelector("[data-plan-saving]");
+    const button = card.querySelector("[data-plan-button]");
+    const planName = card.dataset.planName;
+
+    priceNode.textContent = price;
+    labelNode.textContent = label;
+    savingNode.textContent = saving;
+
+    if (paymentLink && paymentLink.startsWith("http")) {
+      button.href = paymentLink;
+      button.target = "_blank";
+      button.rel = "noreferrer";
+      button.title = `Pay for the ${billingLabels[billing]} ${planName} plan through Razorpay.`;
+      return;
+    }
+
+    button.href = "#contact";
+    button.removeAttribute("target");
+    button.removeAttribute("rel");
+    button.title = "Razorpay payment link pending. Opens the enquiry form for now.";
+  });
+};
+
+billingOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    syncPlanPricing(option.dataset.billingOption);
+  });
+});
+
+syncPlanPricing("monthly");
 
 const setFormStatus = (message, type = "neutral") => {
   formNote.textContent = message;
