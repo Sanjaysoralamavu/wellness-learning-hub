@@ -107,7 +107,7 @@ The goal of this track is to make the page feel calmer, more pleasant, and more 
 - More spacious cards and section rhythm
 - Warmer, coaching-oriented website copy
 - Calmer language around mindset, emotional reset, abundance, and conscious creation
-- Blended, frameless imagery for the hero, signature methods, and free resources sections
+- Consistent image-card treatment for the hero, signature methods, and free resources sections
 - Local image assets with source credits documented below
 
 ## Image Credits

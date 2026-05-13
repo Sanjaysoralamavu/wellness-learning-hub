@@ -8,7 +8,7 @@ Open `index.html` in a browser, or serve the folder with any static file server.
 
 ## Sections
 
-- Full-bleed manifestation coaching hero
+- Manifestation coaching hero with a clean image card
 - About Dr. Manjula Kiran
 - Signature manifestation methods
 - Differentiators and free resources
@@ -32,8 +32,8 @@ Before publishing Track 1, replace the placeholder Web3Forms access key in `inde
 
 This version uses the Soft Sage Sanctuary direction: warm ivory, soft sage,
 gentle rose accents, a calmer split hero, and warmer coaching-focused copy.
-It also blends local imagery into the hero, signature methods, and free resources
-sections without framed image boxes.
+It also uses consistent local image cards across the hero, signature methods,
+and free resources sections.
 
 ## Image credits
 
