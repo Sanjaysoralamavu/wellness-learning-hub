@@ -14,3 +14,8 @@ Open `index.html` in a browser, or serve the folder with any static file server.
 - Differentiators and free resources
 - Community call to action
 - Contact form that opens a prefilled email to `drmanjulakiran1@gmail.com`
+
+## Track 2 design direction
+
+This version uses the Soft Sage Sanctuary direction: warm ivory, soft sage,
+gentle rose accents, a calmer split hero, and warmer coaching-focused copy.

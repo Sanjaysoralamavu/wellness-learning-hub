@@ -62,6 +62,19 @@ The website currently includes:
 | Build step | None |
 | Hosting ready | Yes, static hosting compatible |
 
+## Track 2 - Color and Text Template
+
+Track 2 refreshes the website with the **Soft Sage Sanctuary** direction.
+
+The goal of this track is to make the page feel calmer, more pleasant, and more appropriate for a coaching and manifestation brand. It softens the previous bold visual style with:
+
+- Warm ivory and soft sage color palette
+- Gentle rose calls-to-action
+- Split hero layout with a softer image treatment
+- More spacious cards and section rhythm
+- Warmer, coaching-oriented website copy
+- Calmer language around mindset, emotional reset, abundance, and conscious creation
+
 ## Local Preview
 
 You can open the website directly in a browser:
