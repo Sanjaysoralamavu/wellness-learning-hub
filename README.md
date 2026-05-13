@@ -1,45 +1,132 @@
 # Manifest with Dr. Manjula Kiran
 
-Initial website for **Manifest with Dr. Manjula Kiran**, a life coaching and manifestation brand focused on mindset transformation, subconscious reprogramming, abundance alignment, and emotional healing.
+Professional static website for **Manifest with Dr. Manjula Kiran**, a life coaching and manifestation brand focused on mindset transformation, subconscious reprogramming, abundance alignment, emotional healing, and conscious life design.
 
-## Website
-
-The live site files are inside:
-
-```text
-align-activate-attract/
-```
-
-The name comes from the brand direction:
+The first version of the site is built around the brand direction:
 
 ```text
 Align. Activate. Attract.
 ```
 
-It is a simple static website built with HTML, CSS, and JavaScript. There is no build step, package install, or framework required for this first version.
+## Project Overview
 
-## What This Version Includes
+This repository contains the initial public website for Dr. Manjula Kiran's manifestation coaching presence. The website introduces the brand, explains the core coaching methods, highlights free resources, and gives visitors clear ways to connect through social channels or email.
 
-- Full-screen hero section for the manifestation coaching offer
+The site is intentionally lightweight: it uses plain HTML, CSS, and JavaScript, with no framework, no package manager, and no build process required.
+
+## Repository Contents
+
+```text
+.
+|-- README.md
+|-- .gitignore
+`-- align-activate-attract/
+    |-- README.md
+    |-- index.html
+    |-- styles.css
+    |-- script.js
+    `-- assets/
+        `-- manifestation-studio.jpg
+```
+
+This repository is kept clean on purpose. It only tracks the static website files and basic Git configuration. It does not include old template files, app framework code, build output, dependency folders, environment files, or backend secrets.
+
+## Website Sections
+
+The website currently includes:
+
+- Hero section with the main manifestation coaching message
+- Brand positioning around "Where mindset meets manifestation"
+- Transformation outcomes: mind, abundance, and life design
 - About section for Dr. Manjula Kiran
-- Signature methods section covering mindset reprogramming, manifestation techniques, abundance alignment, and emotional healing
-- "What makes this different" section with key trust points
-- Free resources section for sessions, affirmations, videos, and mindset content
+- Signature methods:
+  - Mindset Reprogramming System
+  - Manifestation Activation Techniques
+  - Wealth and Abundance Alignment
+  - Emotional Healing and Energy Reset
+- Differentiator section explaining the practical and spiritual balance
+- Free resources section for guided sessions, affirmations, videos, and mindset content
 - Community call-to-action
 - Contact section with Instagram, Facebook, YouTube, and email links
 - Contact form that opens a prefilled email inquiry
-- Responsive design for desktop and mobile
+- Responsive layout for desktop and mobile screens
 
-## Open Locally
+## Tech Stack
 
-Open this file in a browser:
+| Area | Details |
+| --- | --- |
+| Markup | HTML5 |
+| Styling | CSS3 |
+| Interactions | Vanilla JavaScript |
+| Assets | Local hero image |
+| Build step | None |
+| Hosting ready | Yes, static hosting compatible |
+
+## Local Preview
+
+You can open the website directly in a browser:
 
 ```text
 align-activate-attract/index.html
 ```
 
-Or serve the folder with any static file server.
+For a local server preview, run this from the repository root:
 
-## Current Status
+```bash
+python3 -m http.server 8080
+```
 
-This is the initial public version of the website. It is ready to review, share, and improve with future updates such as custom photos, testimonials, program details, payment links, or a deployed custom domain.
+Then open:
+
+```text
+http://localhost:8080/align-activate-attract/
+```
+
+## Deployment Notes
+
+This is a static website and can be deployed on:
+
+- GitHub Pages
+- Netlify
+- Vercel
+- Cloudflare Pages
+- Any standard static hosting provider
+
+If deploying with GitHub Pages from this repository structure, the page will be available under the `align-activate-attract/` folder path unless the site files are moved to the repository root.
+
+Example GitHub Pages path:
+
+```text
+https://<username>.github.io/<repository-name>/align-activate-attract/
+```
+
+## Contact Links Used in the Site
+
+- Instagram: <https://www.instagram.com/drmanjulakiran>
+- Facebook: <https://www.facebook.com/drmanjulakirankumar>
+- YouTube: <https://www.youtube.com/channel/UC81FrGiepPYoNcmdYstMb5A/join>
+- Email: <drmanjulakiran1@gmail.com>
+
+## Current Version
+
+This is the initial website release. It is ready for review, sharing, and deployment as a first public version.
+
+## Recommended Next Updates
+
+Future improvements can include:
+
+- Custom professional photos of Dr. Manjula Kiran
+- Testimonials and client transformation stories
+- Detailed program or workshop pages
+- Booking or consultation form integration
+- Payment links for courses or sessions
+- Blog or free resource library
+- Search engine metadata and social sharing images
+- Custom domain setup
+
+## Maintenance Notes
+
+- Keep all public website files inside `align-activate-attract/`.
+- Do not commit `.env`, secret keys, backend credentials, or private configuration files.
+- Keep images optimized before adding them to the repository.
+- Test the site on both desktop and mobile before publishing changes.
