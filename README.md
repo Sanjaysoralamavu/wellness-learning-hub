@@ -126,6 +126,7 @@ The goal of this track is to make the page feel calmer, more pleasant, and more 
 - Calmer language around mindset, emotional reset, abundance, and conscious creation
 - Consistent image-card treatment for the hero, signature methods, and free resources sections
 - Polished social contact cards with platform-specific icons
+- Minimal footer social icons and 2026 rights notice
 - Local image assets with source credits documented below
 
 ## Image Credits

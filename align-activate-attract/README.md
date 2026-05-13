@@ -33,7 +33,8 @@ Before publishing Track 1, replace the placeholder Web3Forms access key in `inde
 This version uses the Soft Sage Sanctuary direction: warm ivory, soft sage,
 gentle rose accents, a calmer split hero, and warmer coaching-focused copy.
 It also uses consistent local image cards across the hero, signature methods,
-free resources sections, plus polished social contact cards with platform icons.
+free resources sections, plus polished social contact cards and minimal footer
+icons with a 2026 rights notice.
 
 ## Image credits
 
