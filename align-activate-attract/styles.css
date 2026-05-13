@@ -855,6 +855,16 @@ h3 {
   font-weight: 720;
 }
 
+.payment-note p[data-status="success"] {
+  color: var(--forest);
+  font-weight: 850;
+}
+
+.payment-note p[data-status="error"] {
+  color: #a23c47;
+  font-weight: 850;
+}
+
 .community {
   padding: clamp(70px, 9vw, 118px) clamp(20px, 5vw, 72px);
   color: var(--forest);

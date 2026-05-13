@@ -4,6 +4,8 @@ const nav = document.querySelector("[data-nav]");
 const form = document.querySelector("[data-contact-form]");
 const formNote = document.querySelector("[data-form-note]");
 const accessKeyPlaceholder = "YOUR_WEB3FORMS_ACCESS_KEY";
+const razorpayKeyPlaceholder = "YOUR_RAZORPAY_KEY_ID";
+const razorpayKeyId = "YOUR_RAZORPAY_KEY_ID";
 
 const syncHeader = () => {
   const scrolled = window.scrollY > 12;
@@ -36,6 +38,8 @@ nav.addEventListener("click", (event) => {
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (event) => {
+    if (link.matches("[data-plan-button]")) return;
+
     const id = link.getAttribute("href");
     if (!id || !id.startsWith("#")) return;
 
@@ -64,23 +68,35 @@ document.querySelectorAll(".reveal").forEach((element) => observer.observe(eleme
 
 const billingOptions = document.querySelectorAll("[data-billing-option]");
 const planCards = document.querySelectorAll("[data-plan-card]");
+const paymentStatus = document.querySelector("[data-payment-status]");
 const billingLabels = {
   monthly: "monthly",
   six: "6-month",
   year: "annual",
 };
+let selectedBilling = "monthly";
 
 const getPaymentLink = (card, billing) => card.dataset[`link${billing[0].toUpperCase()}${billing.slice(1)}`];
+const getPlanValue = (card, key, billing) => card.dataset[`${key}${billing[0].toUpperCase()}${billing.slice(1)}`];
+
+const setPaymentStatus = (message, type = "neutral") => {
+  if (!paymentStatus) return;
+
+  paymentStatus.textContent = message;
+  paymentStatus.dataset.status = type;
+};
 
 const syncPlanPricing = (billing) => {
+  selectedBilling = billing;
+
   billingOptions.forEach((option) => {
     option.classList.toggle("is-active", option.dataset.billingOption === billing);
   });
 
   planCards.forEach((card) => {
-    const price = card.dataset[`price${billing[0].toUpperCase()}${billing.slice(1)}`];
-    const label = card.dataset[`label${billing[0].toUpperCase()}${billing.slice(1)}`];
-    const saving = card.dataset[`save${billing[0].toUpperCase()}${billing.slice(1)}`];
+    const price = getPlanValue(card, "price", billing);
+    const label = getPlanValue(card, "label", billing);
+    const saving = getPlanValue(card, "save", billing);
     const paymentLink = getPaymentLink(card, billing);
     const priceNode = card.querySelector("[data-plan-price]");
     const labelNode = card.querySelector("[data-plan-label]");
@@ -100,11 +116,69 @@ const syncPlanPricing = (billing) => {
       return;
     }
 
-    button.href = "#contact";
+    button.href = "#plans";
     button.removeAttribute("target");
     button.removeAttribute("rel");
-    button.title = "Razorpay payment link pending. Opens the enquiry form for now.";
+    button.title = `Pay for the ${billingLabels[billing]} ${planName} plan through Razorpay Checkout.`;
   });
+};
+
+const openRazorpayCheckout = (card) => {
+  const paymentLink = getPaymentLink(card, selectedBilling);
+
+  if (paymentLink && paymentLink.startsWith("http")) {
+    window.open(paymentLink, "_blank", "noopener,noreferrer");
+    return;
+  }
+
+  const keyId = razorpayKeyId.trim();
+  const planName = card.dataset.planName;
+  const amount = Number(getPlanValue(card, "amount", selectedBilling));
+  const price = getPlanValue(card, "price", selectedBilling);
+  const label = getPlanValue(card, "label", selectedBilling);
+
+  if (!keyId || keyId === razorpayKeyPlaceholder) {
+    setPaymentStatus(
+      "Add your Razorpay Key ID in script.js before publishing live payments. The plan buttons are already wired for Razorpay Checkout.",
+      "error"
+    );
+    return;
+  }
+
+  if (!window.Razorpay) {
+    setPaymentStatus("Razorpay Checkout could not load. Please check your connection and try again.", "error");
+    return;
+  }
+
+  const checkout = new window.Razorpay({
+    key: keyId,
+    amount,
+    currency: "INR",
+    name: "Manifest with Dr. Manjula Kiran",
+    description: `${planName} plan - ${label}`,
+    notes: {
+      plan: planName,
+      duration: billingLabels[selectedBilling],
+      displayed_price: price,
+    },
+    theme: {
+      color: "#b77983",
+    },
+    handler(response) {
+      setPaymentStatus(
+        `Payment completed through Razorpay. Payment ID: ${response.razorpay_payment_id}`,
+        "success"
+      );
+    },
+    modal: {
+      ondismiss() {
+        setPaymentStatus("Razorpay payment window closed. You can choose a plan again anytime.", "neutral");
+      },
+    },
+  });
+
+  checkout.open();
+  setPaymentStatus(`Opening Razorpay Checkout for the ${planName} plan (${price} ${label}).`, "neutral");
 };
 
 billingOptions.forEach((option) => {
@@ -114,6 +188,15 @@ billingOptions.forEach((option) => {
 });
 
 syncPlanPricing("monthly");
+
+planCards.forEach((card) => {
+  const button = card.querySelector("[data-plan-button]");
+
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    openRazorpayCheckout(card);
+  });
+});
 
 const setFormStatus = (message, type = "neutral") => {
   formNote.textContent = message;

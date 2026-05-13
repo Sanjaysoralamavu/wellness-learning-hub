@@ -62,7 +62,7 @@ The website currently includes:
 | Styling | CSS3 |
 | Interactions | Vanilla JavaScript |
 | Form backend | Web3Forms |
-| Payment setup | Razorpay Payment Links placeholders |
+| Payment setup | Razorpay Checkout with optional Payment Links |
 | Assets | Local hero image |
 | Build step | None |
 | Hosting ready | Yes, static hosting compatible |
@@ -136,7 +136,15 @@ The goal of this track is to make the page feel calmer, more pleasant, and more 
 
 Track 3 introduces a paid package section between Free Resources and Join the Community. This placement lets visitors first understand the coaching method, explore free content, and then choose a paid path before reaching the final community and contact sections.
 
-The current implementation is designed for **Razorpay Payment Links** because the site is static and does not need a backend for the first payment version. Each package card already has duration-aware payment link placeholders in `align-activate-attract/index.html`:
+The current implementation opens **Razorpay Checkout** from the plan buttons. Add the real Razorpay Key ID in `align-activate-attract/script.js`:
+
+```js
+const razorpayKeyId = "YOUR_RAZORPAY_KEY_ID";
+```
+
+Replace `YOUR_RAZORPAY_KEY_ID` with the live or test key from the Razorpay dashboard.
+
+The implementation also supports **Razorpay Payment Links** as an optional static-site fallback. Each package card has duration-aware payment link placeholders in `align-activate-attract/index.html`:
 
 ```html
 data-link-monthly=""
@@ -144,7 +152,9 @@ data-link-six=""
 data-link-year=""
 ```
 
-Replace those empty values with the real Razorpay Payment Links when they are created from the Razorpay dashboard. Until then, plan buttons safely open the enquiry section.
+If those values contain real Razorpay URLs, the buttons open the hosted payment links instead of Checkout. Until the key or links are configured, the section shows a setup message.
+
+For production-grade payment verification, add a backend later to create Razorpay Orders and verify payment signatures after checkout.
 
 Package pricing:
 
@@ -161,8 +171,10 @@ Implementation details:
 - Three plan cards: Basic, Intermediate, Advanced
 - Billing duration selector for Monthly, 6 Months, and 1 Year
 - Dynamic price, billing label, savings note, and payment button behavior
-- Razorpay-ready placeholder data attributes
-- README guidance for replacing placeholders with real payment links
+- Razorpay Checkout script integration
+- Razorpay Key ID placeholder in JavaScript
+- Optional Razorpay Payment Link placeholder data attributes
+- README guidance for replacing placeholders with real Razorpay details
 
 ## Image Credits
 

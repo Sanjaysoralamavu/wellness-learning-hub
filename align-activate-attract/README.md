@@ -12,7 +12,7 @@ Open `index.html` in a browser, or serve the folder with any static file server.
 - About Dr. Manjula Kiran
 - Signature manifestation methods
 - Differentiators and free resources
-- Package plans with Razorpay-ready payment placeholders
+- Package plans with Razorpay Checkout integration
 - Community call to action
 - Contact form that opens a prefilled email to `drmanjulakiran1@gmail.com`
 
@@ -44,10 +44,16 @@ Track 3 adds a `#plans` section after Free Resources and before Join the Communi
 The section includes Basic, Intermediate, and Advanced package cards with Monthly,
 6 Months, and 1 Year pricing.
 
-The payment buttons are Razorpay-ready. Add real Razorpay Payment Links to each
-plan card in `index.html` by replacing the empty `data-link-monthly`,
-`data-link-six`, and `data-link-year` values. Until those links are configured,
-the buttons open the enquiry section.
+The payment buttons open Razorpay Checkout after a real Razorpay Key ID is added
+to `script.js`.
+
+```js
+const razorpayKeyId = "YOUR_RAZORPAY_KEY_ID";
+```
+
+The plan cards also support hosted Razorpay Payment Links through the empty
+`data-link-monthly`, `data-link-six`, and `data-link-year` values in `index.html`.
+If those values are filled with Razorpay URLs, the buttons open the hosted links.
 
 ## Image credits
 

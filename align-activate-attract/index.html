@@ -294,6 +294,9 @@
             data-save-monthly="Begin with a simple monthly rhythm."
             data-save-six="Save Rs. 1,000 compared with monthly billing."
             data-save-year="Save Rs. 4,000 compared with monthly billing."
+            data-amount-monthly="100000"
+            data-amount-six="500000"
+            data-amount-year="800000"
             data-link-monthly=""
             data-link-six=""
             data-link-year=""
@@ -335,6 +338,9 @@
             data-save-monthly="A deeper monthly practice for active change."
             data-save-six="Save Rs. 5,000 compared with monthly billing."
             data-save-year="Save Rs. 14,000 compared with monthly billing."
+            data-amount-monthly="200000"
+            data-amount-six="700000"
+            data-amount-year="1000000"
             data-link-monthly=""
             data-link-six=""
             data-link-year=""
@@ -377,6 +383,9 @@
             data-save-monthly="For committed personal transformation."
             data-save-six="Save Rs. 7,000 compared with monthly billing."
             data-save-year="Save Rs. 18,000 compared with monthly billing."
+            data-amount-monthly="250000"
+            data-amount-six="800000"
+            data-amount-year="1200000"
             data-link-monthly=""
             data-link-six=""
             data-link-year=""
@@ -408,9 +417,9 @@
 
         <div class="payment-note reveal">
           <span>Razorpay ready</span>
-          <p>
-            Payments are planned through Razorpay. Until the direct payment links are
-            activated, choose a plan and send an enquiry to receive the right payment link.
+          <p data-payment-status>
+            Payments open securely in Razorpay Checkout. Add your Razorpay Key ID in
+            script.js before publishing live payments.
           </p>
         </div>
       </section>
@@ -598,6 +607,7 @@
       </div>
     </footer>
 
-    <script src="script.js?v=track3-payment"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="script.js?v=track3-razorpay-checkout"></script>
   </body>
 </html>
