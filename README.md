@@ -48,6 +48,7 @@ The website currently includes:
   - Emotional Healing and Energy Reset
 - Differentiator section explaining the practical and spiritual balance
 - Free resources section for guided sessions, affirmations, videos, and mindset content
+- Packages and payment section with Basic, Intermediate, and Advanced plans
 - Community call-to-action
 - Contact section with Instagram, Facebook, YouTube, and email links
 - Enquiry form integrated with Web3Forms for email delivery
@@ -61,6 +62,7 @@ The website currently includes:
 | Styling | CSS3 |
 | Interactions | Vanilla JavaScript |
 | Form backend | Web3Forms |
+| Payment setup | Razorpay Checkout with optional Payment Links |
 | Assets | Local hero image |
 | Build step | None |
 | Hosting ready | Yes, static hosting compatible |
@@ -72,7 +74,8 @@ This README keeps a running record of each track so the project history stays cl
 | Track | Branch | Focus | Status |
 | --- | --- | --- | --- |
 | Track 1 | `handling-query` | Implementing W3Forms for the enquiry section | Implemented on branch |
-| Track 2 | `track-2-color-text-template` | Softer coaching page aesthetics, improved copy, and blended imagery | Current branch |
+| Track 2 | `track-2-color-text-template` | Softer coaching page aesthetics, improved copy, and blended imagery | Implemented on branch |
+| Track 3 | `track-3-payment-gateway` | Package plans and Razorpay payment gateway setup | Current branch |
 
 ## Track 1 - Implementing W3Forms
 
@@ -128,6 +131,51 @@ The goal of this track is to make the page feel calmer, more pleasant, and more 
 - Polished social contact cards with platform-specific icons
 - Minimal footer social icons and 2026 rights notice
 - Local image assets with source credits documented below
+
+## Track 3 - Payment Gateway
+
+Track 3 introduces a paid package section between Free Resources and Join the Community. This placement lets visitors first understand the coaching method, explore free content, and then choose a paid path before reaching the final community and contact sections.
+
+The current implementation opens **Razorpay Checkout** from the plan buttons. Add the real Razorpay Key ID in `align-activate-attract/script.js`:
+
+```js
+const razorpayKeyId = "YOUR_RAZORPAY_KEY_ID";
+```
+
+Replace `YOUR_RAZORPAY_KEY_ID` with the live or test key from the Razorpay dashboard.
+
+The implementation also supports **Razorpay Payment Links** as an optional static-site fallback. Each package card has duration-aware payment link placeholders in `align-activate-attract/index.html`:
+
+```html
+data-link-monthly=""
+data-link-six=""
+data-link-year=""
+```
+
+If those values contain real Razorpay URLs, the buttons open the hosted payment links instead of Checkout. Until the key or links are configured, the section shows a setup message.
+
+For production-grade payment verification, add a backend later to create Razorpay Orders and verify payment signatures after checkout.
+
+Package pricing:
+
+| Plan | Monthly | 6 Months | 1 Year |
+| --- | ---: | ---: | ---: |
+| Basic | Rs. 1,000 | Rs. 5,000 | Rs. 8,000 |
+| Intermediate | Rs. 2,000 | Rs. 7,000 | Rs. 10,000 |
+| Advanced | Rs. 2,500 | Rs. 8,000 | Rs. 12,000 |
+
+Implementation details:
+
+- New `Plans` navigation link
+- New `#plans` website section
+- Three plan cards: Basic, Intermediate, Advanced
+- Billing duration selector for Monthly, 6 Months, and 1 Year
+- Dynamic price, billing label, savings note, and payment button behavior
+- Hover and focus highlight animation for package cards
+- Razorpay Checkout script integration
+- Razorpay Key ID placeholder in JavaScript
+- Optional Razorpay Payment Link placeholder data attributes
+- README guidance for replacing placeholders with real Razorpay details
 
 ## Image Credits
 

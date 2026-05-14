@@ -12,6 +12,7 @@ Open `index.html` in a browser, or serve the folder with any static file server.
 - About Dr. Manjula Kiran
 - Signature manifestation methods
 - Differentiators and free resources
+- Package plans with Razorpay Checkout integration
 - Community call to action
 - Contact form that opens a prefilled email to `drmanjulakiran1@gmail.com`
 
@@ -20,7 +21,8 @@ Open `index.html` in a browser, or serve the folder with any static file server.
 | Track | Branch | Focus | Status |
 | --- | --- | --- | --- |
 | Track 1 | `handling-query` | Implementing W3Forms for the enquiry section | Implemented on branch |
-| Track 2 | `track-2-color-text-template` | Softer coaching page aesthetics, improved copy, and blended imagery | Current branch |
+| Track 2 | `track-2-color-text-template` | Softer coaching page aesthetics, improved copy, and blended imagery | Implemented on branch |
+| Track 3 | `track-3-payment-gateway` | Package plans and Razorpay payment gateway setup | Current branch |
 
 ## Track 1 - Implementing W3Forms
 
@@ -35,6 +37,23 @@ gentle rose accents, a calmer split hero, and warmer coaching-focused copy.
 It also uses consistent local image cards across the hero, signature methods,
 free resources sections, plus polished social contact cards and minimal footer
 icons with a 2026 rights notice.
+
+## Track 3 - Payment Gateway
+
+Track 3 adds a `#plans` section after Free Resources and before Join the Community.
+The section includes Basic, Intermediate, and Advanced package cards with Monthly,
+6 Months, and 1 Year pricing, plus hover and focus highlight animation.
+
+The payment buttons open Razorpay Checkout after a real Razorpay Key ID is added
+to `script.js`.
+
+```js
+const razorpayKeyId = "YOUR_RAZORPAY_KEY_ID";
+```
+
+The plan cards also support hosted Razorpay Payment Links through the empty
+`data-link-monthly`, `data-link-six`, and `data-link-year` values in `index.html`.
+If those values are filled with Razorpay URLs, the buttons open the hosted links.
 
 ## Image credits
 
