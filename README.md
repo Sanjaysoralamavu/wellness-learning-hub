@@ -52,6 +52,7 @@ The website currently includes:
 - Community call-to-action
 - Contact section with Instagram, Facebook, YouTube, and email links
 - Enquiry form integrated with Web3Forms for email delivery
+- Scrollytelling experience with chapter progress, section rail, sticky imagery, and animated headings
 - Responsive layout for desktop and mobile screens
 
 ## Tech Stack
@@ -60,7 +61,7 @@ The website currently includes:
 | --- | --- |
 | Markup | HTML5 |
 | Styling | CSS3 |
-| Interactions | Vanilla JavaScript |
+| Interactions | Vanilla JavaScript, scrollytelling progress, section states |
 | Form backend | Web3Forms |
 | Payment setup | Razorpay Checkout with optional Payment Links |
 | Assets | Local hero image |
@@ -75,7 +76,8 @@ This README keeps a running record of each track so the project history stays cl
 | --- | --- | --- | --- |
 | Track 1 | `handling-query` | Implementing W3Forms for the enquiry section | Implemented on branch |
 | Track 2 | `track-2-color-text-template` | Softer coaching page aesthetics, improved copy, and blended imagery | Implemented on branch |
-| Track 3 | `track-3-payment-gateway` | Package plans and Razorpay payment gateway setup | Current branch |
+| Track 3 | `track-3-payment-gateway` | Package plans and Razorpay payment gateway setup | Implemented on branch |
+| Track 4 | `scorlly-telling` | Scrollytelling page experience | Current branch |
 
 ## Track 1 - Implementing W3Forms
 
@@ -176,6 +178,22 @@ Implementation details:
 - Razorpay Key ID placeholder in JavaScript
 - Optional Razorpay Payment Link placeholder data attributes
 - README guidance for replacing placeholders with real Razorpay details
+
+## Track 4 - Scrollytelling
+
+Track 4 keeps all existing website features and turns the one-page site into a scrollytelling experience inspired by the referenced UCL Portico magazine article structure.
+
+This track adds:
+
+- Scroll progress bar below the sticky header
+- Desktop chapter rail generated from website sections
+- Section active states for chapter-style reading
+- Word-by-word heading reveal animation
+- Sticky image treatment for the hero, methods, and resources visuals
+- Full-screen section rhythm where appropriate
+- Mobile-safe layout that keeps the story readable without crowding the screen
+
+The scrollytelling layer is visual and navigational only. It does not remove or replace the Web3Forms enquiry flow, Razorpay plan buttons, billing selector, social links, footer, or existing local image assets.
 
 ## Image Credits
 

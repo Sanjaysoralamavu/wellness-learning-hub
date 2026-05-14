@@ -6,10 +6,117 @@ const formNote = document.querySelector("[data-form-note]");
 const accessKeyPlaceholder = "YOUR_WEB3FORMS_ACCESS_KEY";
 const razorpayKeyPlaceholder = "YOUR_RAZORPAY_KEY_ID";
 const razorpayKeyId = "YOUR_RAZORPAY_KEY_ID";
+const storyProgress = document.querySelector("[data-story-progress]");
+const storyRail = document.querySelector("[data-story-rail]");
+const storySections = Array.from(document.querySelectorAll("[data-story-section]"));
 
 const syncHeader = () => {
   const scrolled = window.scrollY > 12;
   header.classList.toggle("is-scrolled", scrolled);
+};
+
+const buildStoryRail = () => {
+  if (!storyRail || !storySections.length) return;
+
+  storyRail.innerHTML = "";
+
+  storySections.forEach((section, index) => {
+    if (!section.id) return;
+
+    const link = document.createElement("a");
+    const marker = document.createElement("span");
+    const label = document.createElement("small");
+
+    link.href = `#${section.id}`;
+    marker.textContent = String(index + 1).padStart(2, "0");
+    label.textContent = section.dataset.storyLabel || section.id;
+
+    link.append(marker, label);
+    storyRail.append(link);
+  });
+};
+
+const wrapStoryHeadings = () => {
+  document.querySelectorAll("[data-story-heading]").forEach((heading) => {
+    const text = heading.textContent.trim();
+    if (!text) return;
+
+    heading.setAttribute("aria-label", text);
+    heading.textContent = "";
+
+    text.split(/\s+/).forEach((word, index, words) => {
+      const span = document.createElement("span");
+      span.className = "story-word";
+      span.setAttribute("aria-hidden", "true");
+      span.style.setProperty("--word-index", index);
+      span.textContent = word;
+      heading.append(span);
+
+      if (index < words.length - 1) {
+        heading.append(" ");
+      }
+    });
+  });
+};
+
+const syncStoryState = () => {
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+  const clampedProgress = Math.min(1, Math.max(0, progress));
+
+  if (storyProgress) {
+    storyProgress.style.transform = `scaleX(${clampedProgress})`;
+  }
+
+  if (!storySections.length) return;
+
+  const activeLine = window.innerHeight * 0.44;
+  let activeSection = storySections[0];
+
+  storySections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+
+    if (rect.top <= activeLine && rect.bottom >= activeLine) {
+      activeSection = section;
+      return;
+    }
+
+    if (rect.top < activeLine) {
+      activeSection = section;
+    }
+  });
+
+  const activeId = activeSection ? activeSection.id : "";
+  storySections.forEach((section) => {
+    section.classList.toggle("is-story-active", section.id === activeId);
+  });
+
+  document.querySelectorAll('.site-nav a[href^="#"], .story-rail a[href^="#"]').forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${activeId}`;
+    link.classList.toggle("is-active", isActive);
+
+    if (link.closest(".story-rail")) {
+      if (isActive) {
+        link.setAttribute("aria-current", "step");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    }
+  });
+};
+
+let scrollTicking = false;
+
+const syncScrollState = () => {
+  if (scrollTicking) return;
+
+  scrollTicking = true;
+
+  window.requestAnimationFrame(() => {
+    syncHeader();
+    syncStoryState();
+    scrollTicking = false;
+  });
 };
 
 const closeMenu = () => {
@@ -19,8 +126,12 @@ const closeMenu = () => {
   navToggle.setAttribute("aria-label", "Open menu");
 };
 
+buildStoryRail();
+wrapStoryHeadings();
 syncHeader();
-window.addEventListener("scroll", syncHeader, { passive: true });
+syncStoryState();
+window.addEventListener("scroll", syncScrollState, { passive: true });
+window.addEventListener("resize", syncScrollState, { passive: true });
 
 navToggle.addEventListener("click", () => {
   const isOpen = header.classList.toggle("is-open");
