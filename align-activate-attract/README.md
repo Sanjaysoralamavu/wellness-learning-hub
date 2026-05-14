@@ -42,7 +42,7 @@ icons with a 2026 rights notice.
 
 Track 3 adds a `#plans` section after Free Resources and before Join the Community.
 The section includes Basic, Intermediate, and Advanced package cards with Monthly,
-6 Months, and 1 Year pricing.
+6 Months, and 1 Year pricing, plus hover and focus highlight animation.
 
 The payment buttons open Razorpay Checkout after a real Razorpay Key ID is added
 to `script.js`.

@@ -171,6 +171,7 @@ Implementation details:
 - Three plan cards: Basic, Intermediate, Advanced
 - Billing duration selector for Monthly, 6 Months, and 1 Year
 - Dynamic price, billing label, savings note, and payment button behavior
+- Hover and focus highlight animation for package cards
 - Razorpay Checkout script integration
 - Razorpay Key ID placeholder in JavaScript
 - Optional Razorpay Payment Link placeholder data attributes

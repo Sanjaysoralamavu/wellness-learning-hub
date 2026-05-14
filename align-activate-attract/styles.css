@@ -701,6 +701,7 @@ h3 {
 }
 
 .plan-card {
+  --plan-accent: var(--sage);
   position: relative;
   display: grid;
   gap: 22px;
@@ -712,14 +713,85 @@ h3 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.plan-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 16% 8%, rgba(183, 121, 131, 0.16), transparent 34%),
+    radial-gradient(circle at 92% 14%, rgba(131, 155, 127, 0.2), transparent 30%),
+    linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(238, 244, 233, 0.68));
+  content: "";
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.plan-card::after {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 0;
+  height: 6px;
+  background: var(--plan-accent);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0.45);
+  transform-origin: center;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.plan-card:hover,
+.plan-card:focus-within {
+  background: var(--white);
+  border-color: rgba(131, 155, 127, 0.54);
+  box-shadow:
+    0 34px 82px rgba(41, 73, 62, 0.2),
+    inset 0 0 0 1px rgba(131, 155, 127, 0.16);
+  transform: translateY(-10px) scale(1.01);
+}
+
+.plan-card:hover::before,
+.plan-card:focus-within::before,
+.plan-card:hover::after,
+.plan-card:focus-within::after {
+  opacity: 1;
+}
+
+.plan-card:hover::after,
+.plan-card:focus-within::after {
+  transform: scaleX(1);
+}
+
+.plan-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .plan-card-featured {
+  --plan-accent: var(--rose);
   background:
     linear-gradient(180deg, rgba(238, 244, 233, 0.98), rgba(255, 253, 248, 0.94)),
     var(--sage-pale);
   border-color: rgba(131, 155, 127, 0.34);
   box-shadow: var(--shadow-lifted);
+}
+
+.plan-card-featured:hover,
+.plan-card-featured:focus-within {
+  border-color: rgba(183, 121, 131, 0.54);
+  box-shadow: 0 34px 86px rgba(41, 73, 62, 0.2);
+}
+
+.plan-card:nth-child(3) {
+  --plan-accent: var(--gold);
 }
 
 .plan-badge {
@@ -774,6 +846,13 @@ h3 {
   color: var(--forest);
   font-size: clamp(2.15rem, 3.4vw, 3.25rem);
   line-height: 1;
+  transition: transform 220ms ease, color 220ms ease;
+}
+
+.plan-card:hover .plan-price strong,
+.plan-card:focus-within .plan-price strong {
+  color: #213f35;
+  transform: translateX(4px);
 }
 
 .plan-price span {
@@ -821,6 +900,24 @@ h3 {
   align-self: end;
   width: 100%;
   margin-top: auto;
+  transition:
+    transform 220ms ease,
+    background 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.plan-card:hover .plan-button,
+.plan-card:focus-within .plan-button {
+  transform: translateY(-2px);
+}
+
+.plan-card:hover .plan-button.button-secondary,
+.plan-card:focus-within .plan-button.button-secondary {
+  color: var(--white);
+  background: var(--forest);
+  border-color: var(--forest);
+  box-shadow: 0 16px 34px rgba(41, 73, 62, 0.18);
 }
 
 .payment-note {
