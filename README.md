@@ -1,23 +1,76 @@
-# Align Activate Attract
+# Manifest with Dr. Manjula Kiran
 
-A standalone one-page website for **Manifest with Dr. Manjula Kiran**.
+Professional static website for **Manifest with Dr. Manjula Kiran**, a life coaching and manifestation brand focused on mindset transformation, subconscious reprogramming, abundance alignment, emotional healing, and conscious life design.
 
-## Open locally
+The first version of the site is built around the brand direction:
 
-Open `index.html` in a browser, or serve the folder with any static file server.
+```text
+Align. Activate. Attract.
+```
 
-## Sections
+## Project Overview
 
-- Manifestation coaching hero with a clean image card
-- About Dr. Manjula Kiran
-- Signature manifestation methods
-- Differentiators and free resources
-- Package plans with Razorpay Checkout integration
-- Scrollytelling progress, section rail, sticky imagery, and animated headings
-- Community call to action
-- Contact form that submits through Web3Forms once the access key is configured
+This repository contains the initial public website for Dr. Manjula Kiran's manifestation coaching presence. The website introduces the brand, explains the core coaching methods, highlights free resources, and gives visitors clear ways to connect through social channels or email.
 
-## Track history
+The site is intentionally lightweight: it uses plain HTML, CSS, and JavaScript, with no framework, no package manager, and no build process required.
+
+## Repository Contents
+
+```text
+.
+|-- README.md
+|-- .gitignore
+`-- align-activate-attract/
+    |-- README.md
+    |-- index.html
+    |-- styles.css
+    |-- script.js
+    `-- assets/
+        |-- manifestation-studio.jpg
+        |-- methods-garden-path.jpg
+        `-- resources-lavender-light.jpg
+```
+
+This repository is kept clean on purpose. It only tracks the static website files and basic Git configuration. It does not include old template files, app framework code, build output, dependency folders, environment files, or backend secrets.
+
+## Website Sections
+
+The website currently includes:
+
+- Hero section with the main manifestation coaching message
+- Brand positioning around "Where mindset meets manifestation"
+- Transformation outcomes: mind, abundance, and life design
+- About section for Dr. Manjula Kiran
+- Signature methods:
+  - Mindset Reprogramming System
+  - Manifestation Activation Techniques
+  - Wealth and Abundance Alignment
+  - Emotional Healing and Energy Reset
+- Differentiator section explaining the practical and spiritual balance
+- Free resources section for guided sessions, affirmations, videos, and mindset content
+- Packages and payment section with Basic, Intermediate, and Advanced plans
+- Community call-to-action
+- Contact section with Instagram, Facebook, YouTube, and email links
+- Enquiry form integrated with Web3Forms for email delivery
+- Scrollytelling experience with chapter progress, section rail, sticky imagery, and animated headings
+- Responsive layout for desktop and mobile screens
+
+## Tech Stack
+
+| Area | Details |
+| --- | --- |
+| Markup | HTML5 |
+| Styling | CSS3 |
+| Interactions | Vanilla JavaScript, scrollytelling progress, section states |
+| Form backend | Web3Forms |
+| Payment setup | Razorpay Checkout with optional Payment Links |
+| Assets | Local hero image |
+| Build step | None |
+| Hosting ready | Yes, static hosting compatible |
+
+## Track History
+
+This README keeps a running record of each track so the project history stays clear as new branches and pull requests are created.
 
 | Track | Branch | Focus | Status |
 | --- | --- | --- | --- |
@@ -28,53 +81,191 @@ Open `index.html` in a browser, or serve the folder with any static file server.
 
 ## Track 1 - Implementing W3Forms
 
-Track 1 lives on the `handling-query` branch. It changes the enquiry section from a mail app flow to a Web3Forms-backed form submission flow with required name, email, and message fields, an optional phone or WhatsApp field, spam protection, and inline success/error messages.
+Track 1 wires the enquiry form for Web3Forms so visitor messages can be delivered through a form backend instead of only opening the visitor's email app.
 
-Before publishing Track 1, replace the placeholder Web3Forms access key in `index.html` on the `handling-query` branch.
+This track lives on the `handling-query` branch. It includes:
 
-## Track 2 design direction
+- Web3Forms submission endpoint: `https://api.web3forms.com/submit`
+## Track 1 - Implementing W3Forms
 
-This version uses the Soft Sage Sanctuary direction: warm ivory, soft sage,
-gentle rose accents, a calmer split hero, and warmer coaching-focused copy.
-It also uses consistent local image cards across the hero, signature methods,
-free resources sections, plus polished social contact cards and minimal footer
-icons with a 2026 rights notice.
+The enquiry form is wired for Web3Forms and submits to:
+
+```text
+https://api.web3forms.com/submit
+```
+
+Before publishing the form, create a Web3Forms access key and replace this placeholder in `align-activate-attract/index.html`:
+
+```html
+<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" data-access-key />
+```
+
+Replace `YOUR_WEB3FORMS_ACCESS_KEY` with the real access key. The form includes:
+
+- Required name field
+- Required email field
+- Optional phone or WhatsApp field
+- Required message field
+- Hidden subject line for inbox clarity
+- Hidden botcheck field for spam protection
+- JavaScript success and error messages without redirecting visitors away from the site
+- README guidance for replacing the placeholder Web3Forms access key before publishing
+
+Before publishing Track 1, create a Web3Forms access key and replace this placeholder in `align-activate-attract/index.html` on the `handling-query` branch:
+
+```html
+<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" data-access-key />
+```
+
+## Track 2 - Color and Text Template
+
+Track 2 refreshes the website with the **Soft Sage Sanctuary** direction.
+
+The goal of this track is to make the page feel calmer, more pleasant, and more appropriate for a coaching and manifestation brand. It softens the previous bold visual style with:
+
+- Warm ivory and soft sage color palette
+- Gentle rose calls-to-action
+- Split hero layout with a softer image treatment
+- More spacious cards and section rhythm
+- Warmer, coaching-oriented website copy
+- Calmer language around mindset, emotional reset, abundance, and conscious creation
+- Consistent image-card treatment for the hero, signature methods, and free resources sections
+- Polished social contact cards with platform-specific icons
+- Minimal footer social icons and 2026 rights notice
+- Local image assets with source credits documented below
 
 ## Track 3 - Payment Gateway
 
-Track 3 adds a `#plans` section after Free Resources and before Join the Community.
-The section includes Basic, Intermediate, and Advanced package cards with Monthly,
-6 Months, and 1 Year pricing, plus hover and focus highlight animation.
+Track 3 introduces a paid package section between Free Resources and Join the Community. This placement lets visitors first understand the coaching method, explore free content, and then choose a paid path before reaching the final community and contact sections.
 
-The payment buttons open Razorpay Checkout after a real Razorpay Key ID is added
-to `script.js`.
+The current implementation opens **Razorpay Checkout** from the plan buttons. Add the real Razorpay Key ID in `align-activate-attract/script.js`:
 
 ```js
 const razorpayKeyId = "YOUR_RAZORPAY_KEY_ID";
 ```
 
-The plan cards also support hosted Razorpay Payment Links through the empty
-`data-link-monthly`, `data-link-six`, and `data-link-year` values in `index.html`.
-If those values are filled with Razorpay URLs, the buttons open the hosted links.
+Replace `YOUR_RAZORPAY_KEY_ID` with the live or test key from the Razorpay dashboard.
+
+The implementation also supports **Razorpay Payment Links** as an optional static-site fallback. Each package card has duration-aware payment link placeholders in `align-activate-attract/index.html`:
+
+```html
+data-link-monthly=""
+data-link-six=""
+data-link-year=""
+```
+
+If those values contain real Razorpay URLs, the buttons open the hosted payment links instead of Checkout. Until the key or links are configured, the section shows a setup message.
+
+For production-grade payment verification, add a backend later to create Razorpay Orders and verify payment signatures after checkout.
+
+Package pricing:
+
+| Plan | Monthly | 6 Months | 1 Year |
+| --- | ---: | ---: | ---: |
+| Basic | Rs. 1,000 | Rs. 5,000 | Rs. 8,000 |
+| Intermediate | Rs. 2,000 | Rs. 7,000 | Rs. 10,000 |
+| Advanced | Rs. 2,500 | Rs. 8,000 | Rs. 12,000 |
+
+Implementation details:
+
+- New `Plans` navigation link
+- New `#plans` website section
+- Three plan cards: Basic, Intermediate, Advanced
+- Billing duration selector for Monthly, 6 Months, and 1 Year
+- Dynamic price, billing label, savings note, and payment button behavior
+- Hover and focus highlight animation for package cards
+- Razorpay Checkout script integration
+- Razorpay Key ID placeholder in JavaScript
+- Optional Razorpay Payment Link placeholder data attributes
+- README guidance for replacing placeholders with real Razorpay details
 
 ## Track 4 - Scrollytelling
 
-Track 4 keeps all existing features and adds a chapter-style scroll experience
-inspired by the referenced UCL Portico article. It includes a scroll progress
-bar, generated desktop chapter rail, active story sections, sticky image cards,
-and word-by-word heading reveals.
+Track 4 keeps all existing website features and turns the one-page site into a scrollytelling experience inspired by the referenced UCL Portico magazine article structure.
 
-The enquiry form, Razorpay plan buttons, billing selector, social links, footer,
-and image assets remain in place.
+This track adds:
 
-## Image credits
+- Scroll progress bar below the sticky header
+- Desktop chapter rail generated from website sections
+- Section active states for chapter-style reading
+- Word-by-word heading reveal animation
+- Sticky image treatment for the hero, methods, and resources visuals
+- Full-screen section rhythm where appropriate
+- Mobile-safe layout that keeps the story readable without crowding the screen
 
-- Methods background: [Kaylee Stoll on Unsplash](https://unsplash.com/photos/circular-wooden-gate-in-lush-garden-with-stone-path-aCXB0bajWEE)
-- Resources background: [Sixteen Miles Out on Unsplash](https://unsplash.com/photos/sunlight-streams-through-a-lavender-bush-vZajO08oTiM)
-- Enquiry form integrated with Web3Forms
+The scrollytelling layer is visual and navigational only. It does not remove or replace the Web3Forms enquiry flow, Razorpay plan buttons, billing selector, social links, footer, or existing local image assets.
 
-## Web3Forms setup
+## Image Credits
 
-The enquiry form posts to `https://api.web3forms.com/submit`.
+- Hero studio image: local generated/working project asset
+- Methods background image: [Kaylee Stoll on Unsplash](https://unsplash.com/photos/circular-wooden-gate-in-lush-garden-with-stone-path-aCXB0bajWEE)
+- Resources background image: [Sixteen Miles Out on Unsplash](https://unsplash.com/photos/sunlight-streams-through-a-lavender-bush-vZajO08oTiM)
 
-Before going live, replace `YOUR_WEB3FORMS_ACCESS_KEY` in `index.html` with the real Web3Forms access key.
+## Local Preview
+
+You can open the website directly in a browser:
+
+```text
+align-activate-attract/index.html
+```
+
+For a local server preview, run this from the repository root:
+
+```bash
+python3 -m http.server 8080
+```
+
+Then open:
+
+```text
+http://localhost:8080/align-activate-attract/
+```
+
+## Deployment Notes
+
+This is a static website and can be deployed on:
+
+- GitHub Pages
+- Netlify
+- Vercel
+- Cloudflare Pages
+- Any standard static hosting provider
+
+If deploying with GitHub Pages from this repository structure, the page will be available under the `align-activate-attract/` folder path unless the site files are moved to the repository root.
+
+Example GitHub Pages path:
+
+```text
+https://<username>.github.io/<repository-name>/align-activate-attract/
+```
+
+## Contact Links Used in the Site
+
+- Instagram: <https://www.instagram.com/drmanjulakiran>
+- Facebook: <https://www.facebook.com/drmanjulakirankumar>
+- YouTube: <https://www.youtube.com/channel/UC81FrGiepPYoNcmdYstMb5A/join>
+- Email: <drmanjulakiran1@gmail.com>
+
+## Current Version
+
+This is the initial website release. It is ready for review, sharing, and deployment as a first public version.
+
+## Recommended Next Updates
+
+Future improvements can include:
+
+- Custom professional photos of Dr. Manjula Kiran
+- Testimonials and client transformation stories
+- Detailed program or workshop pages
+- Booking or consultation form integration
+- Payment links for courses or sessions
+- Blog or free resource library
+- Search engine metadata and social sharing images
+- Custom domain setup
+
+## Maintenance Notes
+
+- Keep all public website files inside `align-activate-attract/`.
+- Do not commit `.env`, secret keys, backend credentials, or private configuration files.
+- Keep images optimized before adding them to the repository.
+- Test the site on both desktop and mobile before publishing changes.
