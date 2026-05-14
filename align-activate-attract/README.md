@@ -13,8 +13,9 @@ Open `index.html` in a browser, or serve the folder with any static file server.
 - Signature manifestation methods
 - Differentiators and free resources
 - Package plans with Razorpay Checkout integration
+- Scrollytelling progress, section rail, sticky imagery, and animated headings
 - Community call to action
-- Contact form that opens a prefilled email to `drmanjulakiran1@gmail.com`
+- Contact form that submits through Web3Forms once the access key is configured
 
 ## Track history
 
@@ -22,7 +23,8 @@ Open `index.html` in a browser, or serve the folder with any static file server.
 | --- | --- | --- | --- |
 | Track 1 | `handling-query` | Implementing W3Forms for the enquiry section | Implemented on branch |
 | Track 2 | `track-2-color-text-template` | Softer coaching page aesthetics, improved copy, and blended imagery | Implemented on branch |
-| Track 3 | `track-3-payment-gateway` | Package plans and Razorpay payment gateway setup | Current branch |
+| Track 3 | `track-3-payment-gateway` | Package plans and Razorpay payment gateway setup | Implemented on branch |
+| Track 4 | `scorlly-telling` | Scrollytelling page experience | Current branch |
 
 ## Track 1 - Implementing W3Forms
 
@@ -54,6 +56,16 @@ const razorpayKeyId = "YOUR_RAZORPAY_KEY_ID";
 The plan cards also support hosted Razorpay Payment Links through the empty
 `data-link-monthly`, `data-link-six`, and `data-link-year` values in `index.html`.
 If those values are filled with Razorpay URLs, the buttons open the hosted links.
+
+## Track 4 - Scrollytelling
+
+Track 4 keeps all existing features and adds a chapter-style scroll experience
+inspired by the referenced UCL Portico article. It includes a scroll progress
+bar, generated desktop chapter rail, active story sections, sticky image cards,
+and word-by-word heading reveals.
+
+The enquiry form, Razorpay plan buttons, billing selector, social links, footer,
+and image assets remain in place.
 
 ## Image credits
 

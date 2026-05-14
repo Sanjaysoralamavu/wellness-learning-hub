@@ -40,11 +40,22 @@
       </nav>
     </header>
 
+    <div class="story-progress" aria-hidden="true">
+      <span data-story-progress></span>
+    </div>
+    <nav class="story-rail" aria-label="Story chapters" data-story-rail></nav>
+
     <main>
-      <section class="hero" id="home" aria-label="Manifestation coaching hero">
+      <section
+        class="hero story-section"
+        id="home"
+        aria-label="Manifestation coaching hero"
+        data-story-section
+        data-story-label="Begin"
+      >
         <div class="hero-content reveal">
           <p class="eyebrow">Soft manifestation coaching</p>
-          <h1>Create a life that feels aligned.</h1>
+          <h1 data-story-heading>Create a life that feels aligned.</h1>
           <p class="hero-copy">
             Calm your mind, soften old patterns, and begin creating from clarity.
             Dr. Manjula Kiran guides you through practical manifestation tools,
@@ -75,7 +86,13 @@
         </div>
       </section>
 
-      <section class="intention-strip" aria-label="Core transformation outcomes">
+      <section
+        class="intention-strip story-section"
+        id="shift"
+        aria-label="Core transformation outcomes"
+        data-story-section
+        data-story-label="Shift"
+      >
         <article>
           <span>01</span>
           <strong>Quiet the noise</strong>
@@ -93,11 +110,11 @@
         </article>
       </section>
 
-      <section class="section about" id="about">
+      <section class="section about story-section" id="about" data-story-section data-story-label="Meet">
         <div class="section-kicker">About Dr. Manjula Kiran</div>
         <div class="two-column">
           <div class="section-heading reveal">
-            <h2>A mentor for conscious growth, emotional ease, and aligned living.</h2>
+            <h2 data-story-heading>A mentor for conscious growth, emotional ease, and aligned living.</h2>
           </div>
           <div class="section-copy reveal">
             <p>
@@ -115,11 +132,11 @@
         </div>
       </section>
 
-      <section class="section methods" id="methods">
+      <section class="section methods story-section" id="methods" data-story-section data-story-label="Practice">
         <div class="section-top reveal">
           <div>
             <div class="section-kicker">Signature Methods</div>
-            <h2>Simple practices for a calmer mind and a clearer path.</h2>
+            <h2 data-story-heading>Simple practices for a calmer mind and a clearer path.</h2>
           </div>
           <div class="section-side">
             <p>
@@ -195,11 +212,11 @@
         </div>
       </section>
 
-      <section class="section difference" id="difference">
+      <section class="section difference story-section" id="difference" data-story-section data-story-label="Why">
         <div class="difference-layout">
           <div class="difference-copy reveal">
             <div class="section-kicker">Why It Feels Different</div>
-            <h2>Support that feels spiritual, practical, and emotionally safe.</h2>
+            <h2 data-story-heading>Support that feels spiritual, practical, and emotionally safe.</h2>
             <p>
               The goal is not pressure or perfection. The goal is a calmer relationship
               with your mind, a clearer connection to your desires, and small practices
@@ -217,11 +234,11 @@
         </div>
       </section>
 
-      <section class="section resources" id="resources">
+      <section class="section resources story-section" id="resources" data-story-section data-story-label="Resources">
         <div class="section-top reveal">
           <div>
             <div class="section-kicker">Free Resources</div>
-            <h2>Begin with small moments that bring you back to yourself.</h2>
+            <h2 data-story-heading>Begin with small moments that bring you back to yourself.</h2>
           </div>
           <div class="section-side section-side-actions">
             <a class="text-link" href="https://www.youtube.com/channel/UC81FrGiepPYoNcmdYstMb5A/join" target="_blank" rel="noreferrer">
@@ -261,11 +278,11 @@
         </div>
       </section>
 
-      <section class="section plans" id="plans">
+      <section class="section plans story-section" id="plans" data-story-section data-story-label="Plans">
         <div class="section-top plans-top reveal">
           <div>
             <div class="section-kicker">Payment Gateway</div>
-            <h2>Choose your manifestation path.</h2>
+            <h2 data-story-heading>Choose your manifestation path.</h2>
           </div>
           <div class="plans-intro">
             <p>
@@ -424,10 +441,10 @@
         </div>
       </section>
 
-      <section class="community" id="community">
+      <section class="community story-section" id="community" data-story-section data-story-label="Decision">
         <div class="community-inner reveal">
           <p class="eyebrow">Join the community</p>
-          <h2>Your next chapter can begin with one quiet decision.</h2>
+          <h2 data-story-heading>Your next chapter can begin with one quiet decision.</h2>
           <p>
             Receive reminders, practices, and guidance that help you return to clarity
             and create from a more peaceful inner place.
@@ -441,11 +458,11 @@
         </div>
       </section>
 
-      <section class="section contact" id="contact">
+      <section class="section contact story-section" id="contact" data-story-section data-story-label="Connect">
         <div class="contact-grid">
           <div class="contact-copy reveal">
             <div class="section-kicker">Connect</div>
-            <h2>Share what you are ready to create.</h2>
+            <h2 data-story-heading>Share what you are ready to create.</h2>
             <p>
               Send a note or follow Dr. Manjula Kiran online for manifestation guidance,
               mindset support, and gentle reminders for aligned living.
@@ -608,6 +625,6 @@
     </footer>
 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="script.js?v=track3-razorpay-checkout"></script>
+    <script src="script.js?v=track4-scrollytelling"></script>
   </body>
 </html>
