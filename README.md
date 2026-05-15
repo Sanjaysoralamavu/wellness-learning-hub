@@ -39,7 +39,7 @@ The website currently includes:
 
 - Hero section with the main manifestation coaching message
 - Brand positioning around "Where mindset meets manifestation"
-- Transformation outcomes: mind, abundance, and life design
+- Inner Shift chapter with visual rhythm card and transformation outcomes
 - About section for Dr. Manjula Kiran
 - Signature methods:
   - Mindset Reprogramming System
@@ -77,7 +77,8 @@ This README keeps a running record of each track so the project history stays cl
 | Track 1 | `handling-query` | Implementing W3Forms for the enquiry section | Implemented on branch |
 | Track 2 | `track-2-color-text-template` | Softer coaching page aesthetics, improved copy, and blended imagery | Implemented on branch |
 | Track 3 | `track-3-payment-gateway` | Package plans and Razorpay payment gateway setup | Implemented on branch |
-| Track 4 | `scorlly-telling` | Scrollytelling page experience | Current branch |
+| Track 4 | `scorlly-telling` | Scrollytelling page experience | Implemented on branch |
+| Track 5 | `improvement-and-gaps` | Visual gap fixes and section polish | Current branch |
 
 ## Track 1 - Implementing W3Forms
 
@@ -195,6 +196,18 @@ This track adds:
 
 The scrollytelling layer is visual and navigational only. It does not remove or replace the Web3Forms enquiry flow, Razorpay plan buttons, billing selector, social links, footer, or existing local image assets.
 
+## Track 5 - Improvements and Gaps
+
+Track 5 starts with the blank-space issue in chapter 02, the Inner Shift section.
+
+This track updates that section with:
+
+- Stronger chapter heading and supporting copy
+- Soft visual image panel using the existing local resource image
+- A simple manifestation rhythm graphic: Belief, Energy, Action
+- Three existing transformation outcome cards preserved below the visual story layer
+- Responsive layout refinements for tablet and mobile screens
+
 ## Image Credits
 
 - Hero studio image: local generated/working project asset
@@ -206,7 +219,7 @@ The scrollytelling layer is visual and navigational only. It does not remove or 
 You can open the website directly in a browser:
 
 ```text
-align-activate-attract/index.html
+index.html
 ```
 
 For a local server preview, run this from the repository root:
@@ -218,7 +231,7 @@ python3 -m http.server 8080
 Then open:
 
 ```text
-http://localhost:8080/align-activate-attract/
+http://localhost:8080/
 ```
 
 ## Deployment Notes
