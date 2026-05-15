@@ -203,8 +203,7 @@ Track 5 starts with the blank-space issue in chapter 02, the Inner Shift section
 This track updates that section with:
 
 - Stronger chapter heading and supporting copy
-- Soft visual image panel using the existing local resource image
-- A simple manifestation rhythm graphic: Belief, Energy, Action
+- Soft looping video panel using a local MP4 asset
 - Three existing transformation outcome cards preserved below the visual story layer
 - Responsive layout refinements for tablet and mobile screens
 

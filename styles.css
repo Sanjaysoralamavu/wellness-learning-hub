@@ -602,7 +602,8 @@ h3 {
   isolation: isolate;
 }
 
-.shift-visual img {
+.shift-visual img,
+.shift-visual-media {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -648,40 +649,6 @@ h3 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.6rem, 2.5vw, 2.45rem);
   line-height: 1.05;
-}
-
-.shift-orbit {
-  position: absolute;
-  z-index: 2;
-  top: clamp(20px, 4vw, 34px);
-  right: clamp(20px, 4vw, 34px);
-  display: grid;
-  gap: 10px;
-}
-
-.shift-orbit span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 34px;
-  padding: 7px 13px;
-  color: var(--forest);
-  background: rgba(255, 253, 248, 0.82);
-  border: 1px solid rgba(255, 253, 248, 0.4);
-  border-radius: 999px;
-  box-shadow: 0 10px 24px rgba(32, 49, 44, 0.12);
-  font-size: 0.74rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.shift-orbit span:nth-child(2) {
-  transform: translateX(-34px);
-}
-
-.shift-orbit span:nth-child(3) {
-  transform: translateX(-68px);
 }
 
 .shift-card-list {
