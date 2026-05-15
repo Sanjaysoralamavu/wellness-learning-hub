@@ -206,12 +206,16 @@ This track updates that section with:
 - Soft looping video panel using a local MP4 asset
 - Three existing transformation outcome cards preserved below the visual story layer
 - Responsive layout refinements for tablet and mobile screens
+- Page 3 About section polish with mentoring focus cards
+- Page 5 Why section polish with a three-step practice rhythm
+- Page 8 Community section polish with a landscape visual anchor
 
 ## Image Credits
 
 - Hero studio image: local generated/working project asset
 - Methods background image: [Kaylee Stoll on Unsplash](https://unsplash.com/photos/circular-wooden-gate-in-lush-garden-with-stone-path-aCXB0bajWEE)
 - Resources background image: [Sixteen Miles Out on Unsplash](https://unsplash.com/photos/sunlight-streams-through-a-lavender-bush-vZajO08oTiM)
+- Community landscape image: local Unsplash asset provided in the project folder
 
 ## Local Preview
 
